@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Baloo Da 2" , cursive;
+}
+::selection{
+    color: white;
+    background: yellowgreen;
+  }
+
+body{
+    background: yellowgreen;
+}
+
+.select-box, .play-board, .result-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+/* Selection Box  */
+.select-box {
+    background: white;
+    padding: 2rem 2rem 2rem;
+    border-radius: 1rem;
+    border-bottom: 1rem solid black;
+}
+
+.select-box.hide{
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.9);
+}
+
+.select-box header{
+    font-size: 3rem;
+    font-weight: 500;
+    border-bottom: 0.2rem solid black;
+}
+
+.select-box .title{
+    font-size: 1rem;
+    font-weight: 300;
+    margin-top: 0.5rem;
+}
+
+.select-box .options{
+    display: flex;
+    width: 100%;
+}
+
+.options button{
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0.5rem;
+    margin-bottom: 0rem;
+    border: none;
+    outline: none;
+    background: yellowgreen;
+    color: white;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.options button:hover, .result-box .btn button:hover{
+    background: rgb(136, 190, 28);
+    transform: scale(0.9);
+}
+
+/* play-board */
+.play-board{
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+  .play-board.show{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  .play-board .details{
+    padding: 0.6rem;
+    border-radius: 0.5rem;
+    background: white;
+  }
+  .play-board .players{
+    width: 100%;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+  }
+  .players span{
+    position: relative;
+    z-index: 2;
+    color: yellowgreen;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.5rem 0;
+    width: 100%;
+    text-align: center;
+    cursor: default;
+    user-select: none;
+    transition: all 0.3 ease;
+  }
+  .players.active span:first-child{
+    color: white;
+  }
+  .players.active span:last-child{
+    color: yellowgreen;
+  }
+  .players span:first-child{
+    color: white;
+  }
+  .players .slider{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: yellowgreen;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+  }
+  .players.active .slider{
+    left: 50%;
+  }
+  .players.active span:first-child{
+    color: yellowgreen;
+  }
+  .players.active span:nth-child(2){
+    color: white;
+  }
+  .players.active .slider{
+    left: 50%;
+  }
+  .play-area{
+    margin-top: 1rem;
+  }
+  .play-area section{
+    display: flex;
+    margin-bottom: 0.1rem;
+  }
+  .play-area section span{
+    display: block;
+    height: 5.5rem;
+    width: 5.5rem;
+    margin: 2px;
+    color: yellowgreen;
+    font-size: 2.5rem;
+    line-height: 5.6rem;
+    text-align: center;
+    border-radius: 0.3rem;
+    background: white;
+  }
+  
+  .result-box{
+    padding: 1rem 0.8rem;
+    border-radius: 0.3rem;
+    max-width: 400px;
+    width: 100%;
+    opacity: 0;
+    text-align: center;
+    background: white;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+  .result-box.show{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  .result-box .won-text{
+    font-size: 1.2rem;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+  }
+  .result-box .won-text p{
+    font-weight: 600;
+    margin: 0 0.3rem;
+  }
+  .result-box .btn{
+    width: 100%;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+  }
+  .btn button{
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.4rem 0.8rem;
+    border: none;
+    background: yellowgreen;
+    border-radius: 5px;
+    color: white;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .copyright {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    background: black;
+  }
+
+  .copyright header{
+    font-weight: 500;
+  }
+
+  .copyright header a{
+    text-decoration: none;
+    color: white;
+  }
+
+  /* media query  */
+
+  @media screen and (max-width: 572px) {
+      .select-box {
+        max-width: 100%;
+        width: 80%;
+        justify-content: center;
+    }
+
+    .select-box header{
+      /* font-size: 2rem; */
+      justify-content: center;
+      text-align: center;
+  }
+  
+  .select-box .title{
+      /* font-size: 0.8rem; */
+      justify-content: center;
+      text-align: center;
+  }
+}
